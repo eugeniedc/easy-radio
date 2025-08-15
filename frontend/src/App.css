@@ -1,0 +1,319 @@
+/* CSS Custom Properties for High Contrast Theme */
+:root {
+  /* High contrast color scheme optimized for elderly users */
+  --background-primary: #000000;
+  --background-secondary: #1a1a1a;
+  
+  --surface-primary: #2d2d2d;
+  --surface-secondary: #3d3d3d;
+  --surface-hover: #4d4d4d;
+  
+  --text-primary: #ffffff;
+  --text-secondary: #e0e0e0;
+  --text-on-accent: #000000;
+  
+  --accent-primary: #ffff00;
+  --accent-hover: #cccc00;
+  --accent-secondary: #ffd700;
+  
+  --border-primary: #666666;
+  --border-hover: #888888;
+  
+  --focus-ring: #00bfff;
+  
+  --success-primary: #00ff00;
+  --error-surface: #4d0000;
+  --error-text: #ff6666;
+  --error-border: #cc0000;
+  
+  /* Typography */
+  --font-size-base: 18px;
+  --font-size-large: 24px;
+  --font-size-xlarge: 32px;
+  --line-height-base: 1.6;
+  
+  /* Spacing */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 3rem;
+}
+
+/* Light theme for users who prefer it */
+@media (prefers-color-scheme: light) {
+  :root {
+    --background-primary: #ffffff;
+    --background-secondary: #f5f5f5;
+    
+    --surface-primary: #e0e0e0;
+    --surface-secondary: #d0d0d0;
+    --surface-hover: #c0c0c0;
+    
+    --text-primary: #000000;
+    --text-secondary: #333333;
+    --text-on-accent: #000000;
+    
+    --accent-primary: #0066cc;
+    --accent-hover: #004499;
+    
+    --border-primary: #999999;
+    --border-hover: #666666;
+    
+    --success-primary: #008800;
+    --error-surface: #ffeeee;
+    --error-text: #cc0000;
+    --error-border: #ff6666;
+  }
+}
+
+/* Base reset and accessibility improvements */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--background-primary);
+  color: var(--text-primary);
+  min-height: 100vh;
+}
+
+/* App container */
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--spacing-md);
+}
+
+.app__header {
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+  padding: var(--spacing-lg) 0;
+  border-bottom: 2px solid var(--border-primary);
+}
+
+.app__title {
+  font-size: var(--font-size-xlarge);
+  font-weight: 900;
+  margin: 0 0 var(--spacing-sm) 0;
+  color: var(--accent-primary);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.app__subtitle {
+  font-size: var(--font-size-large);
+  margin: 0;
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+.app__main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+.app__footer {
+  text-align: center;
+  margin-top: var(--spacing-xl);
+  padding-top: var(--spacing-lg);
+  border-top: 2px solid var(--border-primary);
+  color: var(--text-secondary);
+  font-size: 1rem;
+}
+
+/* Error state */
+.app__error {
+  text-align: center;
+  padding: var(--spacing-xl);
+  background: var(--error-surface);
+  border: 3px solid var(--error-border);
+  border-radius: 12px;
+  color: var(--error-text);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.app__error h2 {
+  margin: 0 0 var(--spacing-md) 0;
+  font-size: var(--font-size-large);
+}
+
+.app__error p {
+  margin: 0 0 var(--spacing-lg) 0;
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
+
+.retry-button {
+  background: var(--accent-primary);
+  color: var(--text-on-accent);
+  border: 3px solid var(--accent-primary);
+  border-radius: 8px;
+  padding: var(--spacing-md) var(--spacing-lg);
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+.retry-button:hover {
+  background: var(--accent-hover);
+  border-color: var(--accent-hover);
+  transform: translateY(-2px);
+}
+
+.retry-button:focus {
+  outline: 4px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+
+/* Loading state */
+.app__loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-md);
+  padding: var(--spacing-xl);
+  text-align: center;
+}
+
+.app__loading p {
+  font-size: var(--font-size-large);
+  margin: 0;
+  color: var(--text-secondary);
+}
+
+.loading-spinner {
+  width: 3rem;
+  height: 3rem;
+  border: 4px solid var(--border-primary);
+  border-top: 4px solid var(--accent-primary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Focus management */
+*:focus {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+
+/* Skip to main content link for screen readers */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  background: var(--accent-primary);
+  color: var(--text-on-accent);
+  padding: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 4px;
+  z-index: 1000;
+}
+
+.skip-link:focus {
+  top: 6px;
+}
+
+/* High contrast mode improvements */
+@media (prefers-contrast: high) {
+  :root {
+    --border-primary: #ffffff;
+    --border-hover: #ffffff;
+    --accent-primary: #ffff00;
+    --focus-ring: #ff00ff;
+  }
+  
+  .app__title {
+    text-shadow: none;
+  }
+  
+  * {
+    border-width: 2px !important;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .loading-spinner {
+    animation: none;
+    border-top-color: var(--accent-primary);
+  }
+}
+
+/* Print styles */
+@media print {
+  .app {
+    background: white;
+    color: black;
+  }
+  
+  .app__header {
+    border-bottom: 2px solid black;
+  }
+  
+  .app__footer {
+    border-top: 2px solid black;
+  }
+}
+
+/* Mobile responsive design */
+@media (max-width: 768px) {
+  :root {
+    --font-size-base: 20px;
+    --font-size-large: 26px;
+    --font-size-xlarge: 36px;
+  }
+  
+  .app {
+    padding: var(--spacing-sm);
+  }
+  
+  .app__title {
+    font-size: 2.5rem;
+  }
+  
+  .app__subtitle {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --font-size-base: 22px;
+  }
+  
+  .app__title {
+    font-size: 2rem;
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "name": "Easy Radio HK",
+  "short_name": "Easy Radio",
+  "description": "Simple, accessible radio app for RTHK channels",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#ffff00",
+  "orientation": "portrait",
+  "categories": ["music", "entertainment", "news"],
+  "lang": "en-HK",
+  "dir": "ltr",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "RTHK Radio 1",
+      "short_name": "Radio 1",
+      "description": "News and current affairs",
+      "url": "/?channel=radio1"
+    },
+    {
+      "name": "RTHK Radio 2",
+      "short_name": "Radio 2", 
+      "description": "Popular music",
+      "url": "/?channel=radio2"
+    },
+    {
+      "name": "RTHK Radio 3",
+      "short_name": "Radio 3",
+      "description": "English programming",
+      "url": "/?channel=radio3"
+    }
+  ]
+}

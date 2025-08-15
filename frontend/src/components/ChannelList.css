@@ -1,0 +1,124 @@
+.channel-list {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.channel-list__title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  color: var(--text-primary);
+}
+
+.channel-list__items {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.channel-list__item {
+  margin: 0;
+}
+
+.channel-button {
+  width: 100%;
+  background: var(--surface-primary);
+  border: 3px solid var(--border-primary);
+  border-radius: 12px;
+  padding: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: left;
+  font-family: inherit;
+  min-height: 120px;
+  display: flex;
+  align-items: center;
+}
+
+.channel-button:hover {
+  background: var(--surface-hover);
+  border-color: var(--border-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.channel-button:focus {
+  outline: 4px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+
+.channel-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.channel-button--active {
+  background: var(--accent-primary);
+  border-color: var(--accent-primary);
+  color: var(--text-on-accent);
+}
+
+.channel-button--active:hover {
+  background: var(--accent-hover);
+  border-color: var(--accent-hover);
+}
+
+.channel-button__content {
+  width: 100%;
+}
+
+.channel-button__name {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem 0;
+  color: inherit;
+}
+
+.channel-button__description {
+  font-size: 1.1rem;
+  margin: 0 0 0.75rem 0;
+  color: inherit;
+  opacity: 0.9;
+  line-height: 1.4;
+}
+
+.channel-button__live-indicator {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--success-primary);
+  gap: 0.25rem;
+}
+
+.channel-button--active .channel-button__live-indicator {
+  color: inherit;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .channel-button {
+    border-width: 4px;
+  }
+  
+  .channel-button:focus {
+    outline-width: 6px;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .channel-button {
+    transition: none;
+  }
+  
+  .channel-button:hover {
+    transform: none;
+  }
+}
