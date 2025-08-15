@@ -1,0 +1,300 @@
+:root {
+  /* High-contrast color palette */
+  --color-primary: #0066cc; /* Blue accent */
+  --color-primary-dark: #004499;
+  --color-primary-light: #3388dd;
+  
+  --color-background: #ffffff;
+  --color-surface: #f8f9fa;
+  --color-surface-elevated: #ffffff;
+  
+  --color-text-primary: #000000;
+  --color-text-secondary: #333333;
+  --color-text-on-primary: #ffffff;
+  
+  --color-border: #cccccc;
+  --color-border-strong: #666666;
+  
+  --color-error: #dc3545;
+  --color-success: #28a745;
+  --color-warning: #ffc107;
+  
+  /* Focus outline for accessibility */
+  --focus-outline: 3px solid var(--color-primary);
+  --focus-outline-offset: 2px;
+  
+  /* Spacing and sizing (elderly-friendly) */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-xxl: 3rem;
+  
+  --font-size-sm: 1rem;
+  --font-size-md: 1.25rem;
+  --font-size-lg: 1.5rem;
+  --font-size-xl: 2rem;
+  --font-size-xxl: 2.5rem;
+  
+  --line-height: 1.5;
+  
+  /* Minimum touch target size (44px as required) */
+  --touch-target-min: 44px;
+  --touch-target-preferred: 56px;
+  
+  /* Border radius */
+  --border-radius-sm: 4px;
+  --border-radius-md: 8px;
+  --border-radius-lg: 12px;
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.15);
+  --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Base styles */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--color-background);
+  color: var(--color-text-primary);
+  font-size: var(--font-size-md);
+  line-height: var(--line-height);
+}
+
+/* Focus styles for accessibility */
+*:focus {
+  outline: var(--focus-outline);
+  outline-offset: var(--focus-outline-offset);
+}
+
+/* Button base styles */
+button {
+  min-height: var(--touch-target-min);
+  min-width: var(--touch-target-min);
+  font-size: var(--font-size-md);
+  font-weight: 600;
+  border: 2px solid var(--color-border-strong);
+  border-radius: var(--border-radius-md);
+  background-color: var(--color-surface-elevated);
+  color: var(--color-text-primary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  padding: var(--spacing-sm) var(--spacing-md);
+}
+
+button:hover {
+  background-color: var(--color-surface);
+  border-color: var(--color-primary);
+}
+
+button:active {
+  transform: translateY(1px);
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Primary button styles */
+.btn-primary {
+  background-color: var(--color-primary);
+  color: var(--color-text-on-primary);
+  border-color: var(--color-primary);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-primary-dark);
+  border-color: var(--color-primary-dark);
+}
+
+/* Large button styles */
+.btn-large {
+  min-height: var(--touch-target-preferred);
+  font-size: var(--font-size-lg);
+  padding: var(--spacing-md) var(--spacing-lg);
+}
+
+.btn-icon {
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* App layout */
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-header {
+  background-color: var(--color-primary);
+  color: var(--color-text-on-primary);
+  padding: var(--spacing-md) var(--spacing-lg);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: var(--shadow-md);
+}
+
+.app-title {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  margin: 0;
+}
+
+.app-main {
+  flex: 1;
+  padding: var(--spacing-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+/* Channel tile styles */
+.channel-tile {
+  background-color: var(--color-surface-elevated);
+  border: 2px solid var(--color-border);
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-xl);
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.2s ease;
+}
+
+.channel-tile:hover {
+  border-color: var(--color-primary);
+  box-shadow: var(--shadow-md);
+}
+
+.channel-name {
+  font-size: var(--font-size-xl);
+  font-weight: 600;
+  margin: 0 0 var(--spacing-lg) 0;
+  color: var(--color-text-primary);
+}
+
+/* Player bar styles */
+.player-bar {
+  background-color: var(--color-surface-elevated);
+  border-top: 2px solid var(--color-border);
+  padding: var(--spacing-md) var(--spacing-lg);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  flex-wrap: wrap;
+  box-shadow: var(--shadow-md);
+}
+
+.player-controls {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.player-info {
+  flex: 1;
+  min-width: 200px;
+  text-align: center;
+}
+
+.current-channel {
+  font-size: var(--font-size-md);
+  font-weight: 600;
+  margin: 0;
+}
+
+.player-status {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  margin: var(--spacing-xs) 0 0 0;
+}
+
+/* Volume control styles */
+.volume-control {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.volume-slider {
+  width: 100px;
+  height: var(--touch-target-min);
+}
+
+/* Language selector styles */
+.language-selector {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.language-selector select {
+  min-height: var(--touch-target-min);
+  font-size: var(--font-size-md);
+  border: 2px solid var(--color-border-strong);
+  border-radius: var(--border-radius-md);
+  background-color: var(--color-surface-elevated);
+  color: var(--color-text-primary);
+  padding: var(--spacing-sm);
+}
+
+/* Error message styles */
+.error-message {
+  background-color: var(--color-error);
+  color: white;
+  padding: var(--spacing-md);
+  border-radius: var(--border-radius-md);
+  text-align: center;
+  margin: var(--spacing-md) 0;
+}
+
+/* Loading styles */
+.loading {
+  text-align: center;
+  padding: var(--spacing-xl);
+  font-size: var(--font-size-lg);
+  color: var(--color-text-secondary);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .app-header {
+    flex-direction: column;
+    gap: var(--spacing-md);
+    text-align: center;
+  }
+  
+  .player-bar {
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+  
+  .player-controls {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .volume-control {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .volume-slider {
+    flex: 1;
+    max-width: 200px;
+  }
+}

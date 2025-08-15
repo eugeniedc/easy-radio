@@ -1,0 +1,19 @@
+{
+  "name": "easy-radio",
+  "version": "1.0.0",
+  "description": "Simple Radio Webapp for HK Radio Channel",
+  "main": "index.js",
+  "scripts": {
+    "dev": "concurrently \"cd web && npm run dev\" \"firebase emulators:start --only functions,hosting\"",
+    "build": "cd web && npm run build && cd ../functions && npm run build",
+    "deploy": "npm run build && firebase deploy",
+    "install-all": "cd web && npm install && cd ../functions && npm install",
+    "test": "cd web && npm test"
+  },
+  "keywords": ["radio", "webapp", "hk", "rthk", "react", "firebase"],
+  "author": "eugeniedc",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
