@@ -1,30 +1,36 @@
-/* CSS Custom Properties for High Contrast Theme */
+/* CSS Custom Properties for Pastel Chat Theme */
 :root {
-  /* High contrast color scheme optimized for elderly users */
-  --background-primary: #000000;
-  --background-secondary: #1a1a1a;
+  /* Soft pastel color scheme for modern chat-like interface */
+  --background-primary: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  --background-secondary: #ffffff;
   
-  --surface-primary: #2d2d2d;
-  --surface-secondary: #3d3d3d;
-  --surface-hover: #4d4d4d;
+  --surface-primary: #ffffff;
+  --surface-secondary: #f8f9ff;
+  --surface-hover: #e8eeff;
   
-  --text-primary: #ffffff;
-  --text-secondary: #e0e0e0;
-  --text-on-accent: #000000;
+  --text-primary: #2d3748;
+  --text-secondary: #4a5568;
+  --text-on-accent: #ffffff;
   
-  --accent-primary: #ffff00;
-  --accent-hover: #cccc00;
-  --accent-secondary: #ffd700;
+  --accent-primary: #667eea;
+  --accent-hover: #5a6fd8;
+  --accent-secondary: #f093fb;
   
-  --border-primary: #666666;
-  --border-hover: #888888;
+  --border-primary: #e2e8f0;
+  --border-hover: #cbd5e0;
   
-  --focus-ring: #00bfff;
+  --focus-ring: #667eea;
   
-  --success-primary: #00ff00;
-  --error-surface: #4d0000;
-  --error-text: #ff6666;
-  --error-border: #cc0000;
+  --success-primary: #68d391;
+  --error-surface: #fed7d7;
+  --error-text: #e53e3e;
+  --error-border: #feb2b2;
+  
+  /* Chat-style pastel colors */
+  --chat-bubble-user: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --chat-bubble-system: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  --chat-bubble-info: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  --chat-shadow: 0 4px 20px rgba(102, 126, 234, 0.1);
   
   /* Typography */
   --font-size-base: 18px;
@@ -80,12 +86,12 @@ html {
 body {
   margin: 0;
   padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: var(--background-primary);
+  background: var(--background-primary);
   color: var(--text-primary);
   min-height: 100vh;
 }
@@ -104,22 +110,27 @@ body {
   text-align: center;
   margin-bottom: var(--spacing-xl);
   padding: var(--spacing-lg) 0;
-  border-bottom: 2px solid var(--border-primary);
+  background: var(--surface-primary);
+  border-radius: 20px;
+  box-shadow: var(--chat-shadow);
+  border: 1px solid var(--border-primary);
 }
 
 .app__title {
   font-size: var(--font-size-xlarge);
   font-weight: 900;
   margin: 0 0 var(--spacing-sm) 0;
-  color: var(--accent-primary);
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  background: var(--chat-bubble-user);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .app__subtitle {
   font-size: var(--font-size-large);
   margin: 0;
   color: var(--text-secondary);
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .app__main {
@@ -138,50 +149,68 @@ body {
   font-size: 1rem;
 }
 
-/* Error state */
+/* Error state - Chat bubble style */
 .app__error {
   text-align: center;
   padding: var(--spacing-xl);
   background: var(--error-surface);
-  border: 3px solid var(--error-border);
-  border-radius: 12px;
+  border: 1px solid var(--error-border);
+  border-radius: 20px;
   color: var(--error-text);
   max-width: 600px;
   margin: 0 auto;
+  box-shadow: 0 8px 32px rgba(229, 62, 62, 0.1);
+  position: relative;
+}
+
+/* Chat bubble tail for error */
+.app__error::before {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid var(--error-surface);
 }
 
 .app__error h2 {
   margin: 0 0 var(--spacing-md) 0;
   font-size: var(--font-size-large);
+  font-weight: 700;
 }
 
 .app__error p {
   margin: 0 0 var(--spacing-lg) 0;
   font-size: 1.1rem;
   line-height: 1.5;
+  font-weight: 500;
 }
 
 .retry-button {
-  background: var(--accent-primary);
+  background: var(--chat-bubble-system);
   color: var(--text-on-accent);
-  border: 3px solid var(--accent-primary);
-  border-radius: 8px;
-  padding: var(--spacing-md) var(--spacing-lg);
+  border: none;
+  border-radius: 25px;
+  padding: var(--spacing-md) var(--spacing-xl);
   font-size: 1.1rem;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
   font-family: inherit;
+  box-shadow: 0 4px 15px rgba(240, 147, 251, 0.3);
 }
 
 .retry-button:hover {
-  background: var(--accent-hover);
-  border-color: var(--accent-hover);
   transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(240, 147, 251, 0.4);
 }
 
 .retry-button:focus {
-  outline: 4px solid var(--focus-ring);
+  outline: 3px solid var(--focus-ring);
   outline-offset: 2px;
 }
 
