@@ -1,30 +1,38 @@
-/* CSS Custom Properties for High Contrast Theme */
+/* CSS Custom Properties for Pastel Color Theme */
 :root {
-  /* High contrast color scheme optimized for elderly users */
-  --background-primary: #000000;
-  --background-secondary: #1a1a1a;
+  /* Soft pastel color scheme for better readability and modern look */
+  --background-primary: linear-gradient(135deg, #fef7f0 0%, #f8f4ff 100%);
+  --background-secondary: #fafcff;
   
-  --surface-primary: #2d2d2d;
-  --surface-secondary: #3d3d3d;
-  --surface-hover: #4d4d4d;
+  --surface-primary: #ffffff;
+  --surface-secondary: #f8fbff;
+  --surface-hover: #e8f4fd;
   
-  --text-primary: #ffffff;
-  --text-secondary: #e0e0e0;
-  --text-on-accent: #000000;
+  --text-primary: #2d3748;
+  --text-secondary: #4a5568;
+  --text-on-accent: #ffffff;
   
-  --accent-primary: #ffff00;
-  --accent-hover: #cccc00;
-  --accent-secondary: #ffd700;
+  --accent-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --accent-hover: linear-gradient(135deg, #5a67d8 0%, #6b46c1 100%);
+  --accent-secondary: #e6fffa;
   
-  --border-primary: #666666;
-  --border-hover: #888888;
+  --border-primary: #e2e8f0;
+  --border-hover: #cbd5e0;
   
-  --focus-ring: #00bfff;
+  --focus-ring: #4299e1;
   
-  --success-primary: #00ff00;
-  --error-surface: #4d0000;
-  --error-text: #ff6666;
-  --error-border: #cc0000;
+  --success-primary: #48bb78;
+  --error-surface: #fed7d7;
+  --error-text: #c53030;
+  --error-border: #fc8181;
+  
+  /* New pastel colors for enhanced design */
+  --pastel-mint: #f0fff4;
+  --pastel-lavender: #faf5ff;
+  --pastel-peach: #fffaf0;
+  --pastel-sky: #e6fffa;
+  --pastel-rose: #fff5f5;
+  --pastel-yellow: #fffff0;
   
   /* Typography */
   --font-size-base: 18px;
@@ -40,21 +48,47 @@
   --spacing-xl: 3rem;
 }
 
-/* Light theme for users who prefer it */
+/* Light theme is now the default - keep for compatibility */
 @media (prefers-color-scheme: light) {
   :root {
-    --background-primary: #ffffff;
-    --background-secondary: #f5f5f5;
+    /* Already using light pastel theme as default */
+  }
+}
+
+/* Dark theme for users who prefer it */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background-primary: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    --background-secondary: #0f1419;
     
-    --surface-primary: #e0e0e0;
-    --surface-secondary: #d0d0d0;
-    --surface-hover: #c0c0c0;
+    --surface-primary: #1e2d3d;
+    --surface-secondary: #2a3f5f;
+    --surface-hover: #374357;
     
-    --text-primary: #000000;
-    --text-secondary: #333333;
-    --text-on-accent: #000000;
+    --text-primary: #e2e8f0;
+    --text-secondary: #a0aec0;
+    --text-on-accent: #ffffff;
     
-    --accent-primary: #0066cc;
+    --accent-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --accent-hover: linear-gradient(135deg, #5a67d8 0%, #6b46c1 100%);
+    
+    --border-primary: #4a5568;
+    --border-hover: #718096;
+    
+    --success-primary: #68d391;
+    --error-surface: #2d1b1b;
+    --error-text: #fc8181;
+    --error-border: #e53e3e;
+    
+    /* Dark theme pastel adaptations */
+    --pastel-mint: #1a2e23;
+    --pastel-lavender: #2d1b2f;
+    --pastel-peach: #2e231a;
+    --pastel-sky: #1a2e2a;
+    --pastel-rose: #2e1a1a;
+    --pastel-yellow: #2e2e1a;
+  }
+}
     --accent-hover: #004499;
     
     --border-primary: #999999;
@@ -85,7 +119,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: var(--background-primary);
+  background: var(--background-primary);
   color: var(--text-primary);
   min-height: 100vh;
 }
@@ -104,22 +138,29 @@ body {
   text-align: center;
   margin-bottom: var(--spacing-xl);
   padding: var(--spacing-lg) 0;
-  border-bottom: 2px solid var(--border-primary);
+  border-bottom: none;
+  background: var(--pastel-lavender);
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(102, 126, 234, 0.1);
+  margin: var(--spacing-md);
 }
 
 .app__title {
   font-size: var(--font-size-xlarge);
   font-weight: 900;
   margin: 0 0 var(--spacing-sm) 0;
-  color: var(--accent-primary);
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  background: var(--accent-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: none;
 }
 
 .app__subtitle {
   font-size: var(--font-size-large);
   margin: 0;
   color: var(--text-secondary);
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .app__main {
